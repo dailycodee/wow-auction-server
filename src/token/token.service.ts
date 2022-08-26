@@ -24,6 +24,6 @@ export class TokenService {
       ),
     );
 
-    return tokenResponse.data;
+    return tokenResponse.data.access_token;
   }
 }
