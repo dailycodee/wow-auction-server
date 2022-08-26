@@ -1,13 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { firstValueFrom } from 'rxjs';
-import { TokenDto } from './dto/token.dto';
+import { TokenModel } from './models/token.model';
 
 @Injectable()
 export class TokenService {
   constructor(private readonly httpService: HttpService) {}
 
-  async getToken(): Promise<TokenDto> {
+  async getToken(): Promise<TokenModel> {
     const encodedClientData = Buffer.from(
       `${process.env.BATTLE_NET_CLIENT_ID}:${process.env.BATTLE_NET_CLIENT_SECRET}`,
     ).toString('base64');

@@ -2,6 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { TokenService } from '../token/token.service';
 import { firstValueFrom } from 'rxjs';
+import { RealmModel } from './models/realm.model';
+import { DEFAULT_LOCALE, LOCALE_ARRAY } from '../config/constants';
 
 @Injectable()
 export class RealmService {
@@ -10,7 +12,9 @@ export class RealmService {
     private readonly tokenService: TokenService,
   ) {}
 
-  async getAllRealms(locale: string) {
+  async getAllRealms(locale: string): Promise<RealmModel> {
+    locale = LOCALE_ARRAY.includes(locale) ? locale : DEFAULT_LOCALE;
+
     const token = await this.tokenService.getToken();
 
     const realmsResponse = await firstValueFrom(
