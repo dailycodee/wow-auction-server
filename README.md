@@ -10,8 +10,13 @@ $ npm install
 - BATTLE_NET_TOKEN_LINK - ссылка oauth battle net 
 - BATTLE_NET_CLIENT_ID - clientId
 - BATTLE_NET_CLIENT_SECRET - clientSecret
+- BATTLE_NET_API_LINK - ссылка на API
 
-Для EU серверов: https://eu.battle.net/oauth/token
+Для EU серверов:
+
+https://eu.api.blizzard.com/data/wow
+
+https://eu.battle.net/oauth/token
 
 Регистрация ClientId и ClientSecret:
 https://develop.battle.net/access/clients
